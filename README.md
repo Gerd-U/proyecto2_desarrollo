@@ -35,7 +35,7 @@ Para correr la prueba automática (comprueba que "Ver más" muestra y oculta la 
 
 | Requisito | Detalle |
 |---|---|
-| Flutter | 3.47 o más reciente (canal `stable`) |
+| Flutter | Versión estable más reciente, que incluya Dart 3.13.7 o superior. Si es menor, ejecutar `flutter upgrade` |
 | Dart | 3.13.7 o superior (viene incluido con Flutter) |
 | Sistema operativo | Windows 10 u 11 (64 bits) |
 | Navegador | Google Chrome |
@@ -44,6 +44,8 @@ Para correr la prueba automática (comprueba que "Ver más" muestra y oculta la 
 | Cuentas externas | No se necesita ninguna |
 
 Para comprobar la versión: `flutter --version`.
+
+En el resultado, la línea `Tools • Dart` debe decir 3.13.7 o más. Si dice un número menor, ejecutar `flutter upgrade` antes de la práctica; si no, `flutter pub get` va a fallar.
 
 ## Estructura del proyecto
 
