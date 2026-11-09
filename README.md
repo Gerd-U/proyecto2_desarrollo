@@ -1,75 +1,99 @@
-Instalación de Flutter y creación de un proyecto
+# Tarjeta de presentación en Flutter
 
-1. Requisitos
+Proyecto del **Grupo 3 (Flutter)** del curso **IF0009 Desarrollo de Software IV**, Universidad de Costa Rica, Sede de Occidente, Recinto de Tacares (II semestre 2026).
 
-Antes de comenzar, se deben instalar las siguientes herramientas:
+## ¿Qué es esta app?
 
-Visual Studio Code: editor donde se desarrollará el proyecto.
-https://code.visualstudio.com/download
+Una app de una sola pantalla con una **tarjeta de presentación personal**: avatar con iniciales, nombre, una frase, tres datos con íconos (lugar, correo y edad) y un botón **Ver más** que muestra u oculta información adicional (intereses y tecnologías).
 
-Git: necesario para instalar y utilizar Flutter.
-https://git-scm.com/downloads/win
+<!-- Agregar captura: guardar la imagen en docs/captura.png y descomentar la línea de abajo -->
+<!-- ![Tarjeta de presentación](docs/captura.png) -->
 
-Google Chrome: navegador donde se ejecutará la aplicación.
-https://www.google.com/chrome/
+**Conceptos de Flutter que se practican:** widgets, `Column`, `Row`, `Text`, `CircleAvatar`, `Icon`, `Container`, `SizedBox`, `Expanded`, `StatelessWidget`, `StatefulWidget`, `setState` y eventos de botón (`onPressed`).
 
-Android Studio (opcional): permite instalar Android SDK y utilizar emuladores para probar aplicaciones móviles.
-https://developer.android.com/studio
+## Cómo ejecutar este proyecto
 
-2. Instalar las extensiones de Flutter y Dart
-   1. Abrir Visual Studio Code.
-   2. Presionar Ctrl + Shift + X para abrir las extensiones.
-   3. Buscar Flutter e instalar la extensión publicada por Dart Code.
-   4. La extensión Dart se instalará automáticamente.
+Requisito: tener Flutter instalado (ver [Preparar el ambiente](#preparar-el-ambiente)).
 
-3. Instalar Flutter SDK y configurarlo en el PATH
+```bash
+git clone https://github.com/Gerd-U/proyecto2_desarrollo.git
+cd proyecto2_desarrollo
+flutter pub get
+flutter run -d chrome
+```
 
-   El PATH permite que Windows reconozca comandos como flutter desde la terminal. Para instalar y configurar Flutter:
-   1. En VS Code, presionar Ctrl + Shift + P y buscar Flutter: New Project.
-   2. Seleccionar Download SDK.
-   3. Elegir una carpeta, por ejemplo C:\dev, y presionar Clone Flutter.
-   4. Seleccionar Add SDK to PATH cuando aparezca la opción.
-   5. Cerrar VS Code y volver a abrirlo.
-   6. Abrir la terminal y comprobar la instalación:
-      "flutter --version"
+1. `git clone` descarga una copia del proyecto.
+2. `cd proyecto2_desarrollo` entra a la carpeta descargada.
+3. `flutter pub get` descarga las dependencias.
+4. `flutter run -d chrome` ejecuta la app en Google Chrome.
 
-   Si aparece la versión de Flutter, la instalación fue correcta.
-   Si Flutter no se reconoce: buscar en Windows Editar las variables de entorno de esta cuenta, entrar en Path → Editar → Nuevo y agregar la ubicación de la carpeta bin de Flutter, por ejemplo:
-   C:\dev\flutter\bin
-   Guardar los cambios y reiniciar VS Code.
+Con la app corriendo, en la terminal: `r` recarga los cambios, `R` reinicia la app y `q` la detiene.
 
-   Guía oficial: https://docs.flutter.dev/install/with-vs-code
+Para correr la prueba automática (comprueba que "Ver más" muestra y oculta la información): `flutter test`.
 
-4. Configurar Android Studio (opcional)
+## Requisitos y dependencias
 
-   Si se desea desarrollar y probar aplicaciones Android:
-   1. Abrir Android Studio.
-   2. Entrar en More Actions → SDK Manager.
-   3. Instalar Android SDK y sus herramientas.
-   4. Para crear un emulador, entrar en Device Manager → Create Virtual Device.
-      Aceptar las licencias desde la terminal de VS Code:
-      "flutter doctor --android-licenses"
+| Requisito | Detalle |
+|---|---|
+| Flutter | 3.47 o más reciente (canal `stable`) |
+| Dart | 3.13.7 o superior (viene incluido con Flutter) |
+| Sistema operativo | Windows 10 u 11 (64 bits) |
+| Navegador | Google Chrome |
+| Editor recomendado | Visual Studio Code con las extensiones Flutter y Dart |
+| Paquetes extra | Ninguno. Solo `cupertino_icons` y `flutter_lints` (desarrollo), que ya vienen en `pubspec.yaml` |
+| Cuentas externas | No se necesita ninguna |
 
-5. Verificar la instalación
+Para comprobar la versión: `flutter --version`.
 
-   Abrir la terminal de VS Code y ejecutar:
+## Estructura del proyecto
+
+```
+lib/
+  main.dart                     <- punto de entrada: arranca la app (MiApp)
+  screens/
+    perfil_screen.dart          <- arma la pantalla, la tarjeta y las filas de datos
+  widgets/
+    encabezado_perfil.dart      <- avatar + nombre + frase (sin estado)
+    seccion_mas_info.dart       <- botón "Ver más" y la información extra (con estado)
+test/
+  widget_test.dart              <- prueba automática del botón "Ver más"
+pubspec.yaml                    <- nombre, dependencias y versión mínima de Dart
+```
+
+## Preparar el ambiente
+
+Todo esto se hace **antes** de la práctica.
+
+1. **Visual Studio Code**: https://code.visualstudio.com/download
+2. **Git**: https://git-scm.com/downloads/win (dejar las opciones por defecto).
+3. **Google Chrome**: https://www.google.com/chrome/
+4. **Extensiones**: en VS Code presionar `Ctrl + Shift + X`, buscar **Flutter** (publicada por Dart Code) e instalar. La extensión de Dart se instala sola.
+5. **Flutter SDK y PATH**:
+   1. En VS Code presionar `Ctrl + Shift + P` y escribir **Flutter: New Project**.
+   2. Elegir **Download SDK**, escoger una carpeta sin espacios ni tildes (por ejemplo `C:\dev`) y presionar **Clone Flutter**.
+   3. Cuando aparezca, elegir **Add SDK to PATH**.
+   4. Cerrar VS Code por completo y volver a abrirlo.
+6. **Verificar** en la terminal de VS Code:
+
+   ```bash
+   flutter --version
    flutter doctor
-   Este comando muestra las herramientas instaladas e indica si falta configurar algún componente.
-   Para comprobar los dispositivos disponibles:
-   flutter devices 6. Crear un proyecto Flutter
-   1. Abrir Visual Studio Code.
-   2. Presionar Ctrl + Shift + P.
-   3. Buscar Flutter: New Project.
-   4. Seleccionar Application.
-   5. Elegir la carpeta donde se guardará el proyecto.
-   6. Escribir un nombre en minúsculas, por ejemplo tarjeta_presentacion.
-      También se puede crear desde la terminal:
-      flutter create tarjeta_presentacion
-      cd tarjeta_presentacion
-      code .
+   flutter devices
+   ```
 
-6. Ejecutar el proyecto
-   Para ejecutar la aplicación en Google Chrome, abrir la terminal de VS Code y escribir:
-   flutter run -d chrome
-   Flutter abrirá la aplicación en el navegador.
-   Nota: Dart viene incluido con Flutter, por lo que no es necesario instalarlo por separado. Android Studio tampoco es obligatorio para ejecutar esta práctica en Chrome.
+   `flutter devices` debe listar **Chrome (web)**.
+
+> **Android Studio es opcional.** Solo hace falta para usar un emulador de Android. Es normal que `flutter doctor` marque en rojo "Android toolchain" o "Visual Studio": no afecta esta práctica, que corre en Chrome.
+
+Guía oficial: https://docs.flutter.dev/install/with-vs-code
+
+## Errores comunes
+
+| Mensaje o síntoma | Solución |
+|---|---|
+| `flutter` no se reconoce como comando | Agregar la carpeta `bin` de Flutter al PATH: Inicio > "Editar las variables de entorno de esta cuenta" > Path > Editar > Nuevo > `C:\dev\flutter\bin`. Aceptar, cerrar VS Code por completo y reabrirlo. |
+| `No supported devices found` o no aparece Chrome | Instalar Chrome y comprobar con `flutter devices`. |
+| `No pubspec.yaml file found` | La terminal está fuera del proyecto: ejecutar `cd proyecto2_desarrollo`. |
+| Error de versión al ejecutar `flutter pub get` | La versión de Flutter es antigua. Actualizar con `flutter upgrade`. |
+| Gradle o licencias de Android | Solo aplica si se usa Android Studio: `flutter doctor --android-licenses`. |
+| La primera ejecución tarda mucho | Es normal: Flutter descarga archivos la primera vez. |
