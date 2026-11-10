@@ -10,7 +10,7 @@ class EncabezadoPerfil extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 32,
-          backgroundColor: Color(0xFF6A3FB5),
+          backgroundColor: const Color(0xFF6A3FB5),
           backgroundImage: const NetworkImage('https://fastly.picsum.photos/id/454/200/200.jpg?hmac=N13wDge6Ku6Eg_LxRRsrfzC1A4ZkpCScOEp-hH-PwHg'),
           onBackgroundImageError: (error, stackTrace) {},
         ),
