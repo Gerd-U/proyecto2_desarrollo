@@ -4,7 +4,7 @@ Proyecto del **Grupo 3 (Flutter)** del curso **IF0009 Desarrollo de Software IV*
 
 ## ¿Qué es esta app?
 
-Una app de una sola pantalla con una **tarjeta de presentación personal**: avatar con iniciales, nombre, una frase, tres datos con íconos (lugar, correo y edad) y un botón **Ver más** que muestra u oculta información adicional (intereses y tecnologías).
+Una app de una sola pantalla con una **tarjeta de presentación personal**: avatar con foto, nombre, una frase, tres datos con íconos (lugar, correo y edad) y un botón **Ver más** que muestra u oculta información adicional (intereses y tecnologías).
 
 <!-- Agregar captura: guardar la imagen en docs/captura.png y descomentar la línea de abajo -->
 <!-- ![Tarjeta de presentación](docs/captura.png) -->

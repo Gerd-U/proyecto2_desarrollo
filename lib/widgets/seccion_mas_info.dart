@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Botón "Ver más" que muestra u oculta información extra.
-// Es StatefulWidget porque recuerda si la sección está abierta o cerrada.
 class SeccionMasInfo extends StatefulWidget {
   const SeccionMasInfo({super.key});
 
@@ -10,9 +8,8 @@ class SeccionMasInfo extends StatefulWidget {
 }
 
 class _SeccionMasInfoState extends State<SeccionMasInfo> {
-  bool abierto = false; // El estado: ¿se ve la información extra?
+  bool abierto = false;
 
-  // Estilo de los títulos pequeños (se usa dos veces)
   final estiloTitulo = const TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.bold,
@@ -25,7 +22,6 @@ class _SeccionMasInfoState extends State<SeccionMasInfo> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Botón que ocupa todo el ancho de la tarjeta
         SizedBox(
           width: double.infinity,
           child: FilledButton(
@@ -36,24 +32,21 @@ class _SeccionMasInfoState extends State<SeccionMasInfo> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             ),
             onPressed: () {
-              // setState cambia el valor y Flutter vuelve a dibujar
               setState(() {
-                abierto = !abierto; // true pasa a false y al revés
+                abierto = !abierto;
               });
             },
-            // El texto cambia según el estado
             child: Text(abierto ? 'Ver menos' : 'Ver más'),
           ),
         ),
 
-        // Esta caja solo aparece cuando "abierto" es true
         if (abierto)
           Container(
             width: double.infinity,
             margin: const EdgeInsets.only(top: 16),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: const Color(0xFFF3EEFA), // Lavanda muy claro
+              color: const Color(0xFFF3EEFA),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -61,11 +54,11 @@ class _SeccionMasInfoState extends State<SeccionMasInfo> {
               children: [
                 Text('INTERESES', style: estiloTitulo),
                 const SizedBox(height: 4),
-                const Text('Desarrollo de videojuegos (he participado en game jams) y proyectos web creativos'),
+                const Text('Diseño de interfaces y fotografía de paisajes'),
                 const SizedBox(height: 14),
                 Text('TECNOLOGÍAS QUE HE USADO', style: estiloTitulo),
                 const SizedBox(height: 4),
-                const Text('Java, React, .NET, SQL Server, HTML y CSS'),
+                const Text('Python, JavaScript, MySQL, HTML y CSS'),
                 const SizedBox(height: 14),
                 const Text(
                   'Actualmente aprendiendo Flutter',

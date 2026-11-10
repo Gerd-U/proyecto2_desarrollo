@@ -14,7 +14,6 @@ class FilaDato extends StatelessWidget {
         children: [
           Icon(icono, size: 20, color: const Color(0xFF6A3FB5)),
           const SizedBox(width: 12),
-          // Expanded deja que el texto use el espacio que sobra sin salirse
           Expanded(
             child: Text(texto, style: const TextStyle(fontSize: 15, color: Color(0xFF2E1A47))),
           ),
