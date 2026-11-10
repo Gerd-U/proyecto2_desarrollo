@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/encabezado_perfil.dart';
 import '../widgets/seccion_mas_info.dart';
-import '/widgets/fila_dato.dart';
+import '../widgets/fila_dato.dart';
 
 // Pantalla principal: un fondo lavanda con la tarjeta blanca al centro.
 // Es StatelessWidget porque su contenido no cambia.
