@@ -53,9 +53,10 @@ En el resultado, la línea `Tools • Dart` debe decir 3.13.7 o más. Si dice un
 lib/
   main.dart                     <- punto de entrada: arranca la app (MiApp)
   screens/
-    perfil_screen.dart          <- arma la pantalla, la tarjeta y las filas de datos
+    perfil_screen.dart          <- arma la pantalla y la tarjeta
   widgets/
-    encabezado_perfil.dart      <- avatar + nombre + frase (sin estado)
+    encabezado_perfil.dart      <- avatar (foto) + nombre + frase (sin estado)
+    fila_dato.dart              <- fila reutilizable de ícono + texto
     seccion_mas_info.dart       <- botón "Ver más" y la información extra (con estado)
 test/
   widget_test.dart              <- prueba automática del botón "Ver más"
